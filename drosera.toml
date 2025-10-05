@@ -1,0 +1,26 @@
+# drosera config (minimal)
+ethereum_rpc = "https://ethereum-hoodi-rpc.publicnode.com"
+drosera_rpc  = "https://relay.hoodi.drosera.io"
+eth_chain_id = 560048
+[rpc]
+url = "http://127.0.0.1:8545"
+drosera_address = "0x91cB447BaFc6e0EA0F4Fe056F5a9b1F14bb06e5D"
+
+[traps]
+
+[traps.gas_limit_drop]
+# Path to the compiled JSON created by forge/Foundry in out/
+path = "out/GasLimitDropTrap.sol/GasLimitDropTrap.json"
+# For dryrun we use the view collect()
+collect_function = "collect()"
+# The responder (fill after you deploy GasAlertResponse)
+response_contract = "0x8d8622bddcafa0a8c8c01ffce45d2e62a7e414eb"
+# The responder function we'll call (typed)
+response_function = "respondWithGasAlert(uint256,uint256)"
+cooldown_period_blocks = 20
+min_number_of_operators = 1
+max_number_of_operators = 3
+block_sample_size = 10
+private_trap = true
+whitelist = ["0x458d754B217306B89798f404349ed8e60Ce2c44F"]
+address = "0x44aF676d5f30fB034326871878Cf77b2b19032F3"
